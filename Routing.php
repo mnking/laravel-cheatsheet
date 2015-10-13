@@ -87,12 +87,47 @@ public function boot(Router $router)
     parent::boot($router);
 }
 
-//Named Routes
+//Restful Route
+Route::resource('name', 'nameController');
 
+//Partial Restful Routes (Resource)
+Route::resource('photo', 'PhotoController',
+                ['only' => ['index', 'show']]);
+
+Route::resource('photo', 'PhotoController',
+                ['except' => ['create', 'store', 'update', 'destroy']]);
+
+//Naming Restful Routes (Resource)
+//Override controller action
+//No override NAME
+Route::resource('photo', 'PhotoController',
+                ['names' => ['create' => 'photo.build']]);
+
+//Nested Resources
+//The url will like this
+//photos/{photos}/comments/{comments}
+Route::resource('photos.comments', 'PhotoCommentController');
+
+
+//Naming Routes
 Route::get('user/profile', [
     'as' => 'profile', 
     'uses' => 'userController@profileAction',
 ]);
+
+//Implicit Route
+//The method names should begin with the HTTP verb 
+//Ex: getIndex, postStore
+Route::controller('users', 'UserController');
+
+//Naming Implicit Route
+//getShow is method
+//user.show is route name
+Route::controller('users', 'UserController', [
+    'getShow' => 'user.show',
+]);
+
+
 
 //Group with middleware
 Route::group(['middleware' => 'auth'], function () {
