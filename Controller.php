@@ -27,3 +27,8 @@ class UserController extends Controller
         $this->middleware('subscribed', ['except' => ['fooAction', 'barAction']]);
     }
 }
+
+//File Downloads
+return response()->download($pathToFile);
+
+return response()->download($pathToFile, $name, $headers);
