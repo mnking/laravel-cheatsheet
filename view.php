@@ -14,7 +14,8 @@ if (view()->exists('emails.customer')) {
 }
 
 //Sharing Data With All Views
-//Typically, you would place calls to share within a service provider's boot method of AppServiceProvider 
+//Typically, you would place calls to share within 
+//a service provider's boot method of AppServiceProvider 
 //Or generate a separate service provider to house them
 view()->share('key', 'value');
 
