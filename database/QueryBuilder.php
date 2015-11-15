@@ -263,4 +263,3 @@ DB::table('users')->where('id', 1)->sharedLock()->get();
 //SELECT * FROM users WHERE id=1 for update
 //will not allow other transactions to READ, UPDATE or DELETE the row
 DB::table('users')->where('id', 1)->lockForUpdate()->get();
-
