@@ -106,9 +106,11 @@ $table->default($value)	//Specify a "default" value for the column
 $table->unsigned()	//Set integer columns to UNSIGNED
 
 
-// Modifying Columns
-// Use doctrine/dbal dependency to your composer.json
-// https://packagist.org/packages/doctrine/dbal
+////////////////////////////////////////////////////////
+// Modifying Columns                                  //
+// Use doctrine/dbal dependency to your composer.json //
+// https://packagist.org/packages/doctrine/dbal       //
+////////////////////////////////////////////////////////
 
 // Updating Column Attributes
 Schema::table('users', function ($table) {
